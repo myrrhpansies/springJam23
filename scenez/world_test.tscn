@@ -6,4 +6,4 @@
 
 [node name="sprout" parent="." instance=ExtResource("1_3c3mc")]
 position = Vector2(248, 152)
-speed = 100
+speed = 200
