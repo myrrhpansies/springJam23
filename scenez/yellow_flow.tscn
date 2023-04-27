@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciwpf5vj6c7ex"]
+
+[ext_resource type="Texture2D" uid="uid://w23e4x1o12h1" path="res://springArt/yelFlowSheet.png" id="1_hxdu0"]
+
+[sub_resource type="Animation" id="Animation_nxefo"]
+resource_name = "sleepIdle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_cpmn1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5m0k2"]
+resource_name = "bloom"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_g7hh2"]
+resource_name = "wakeIdle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [15, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ha27u"]
+_data = {
+"RESET": SubResource("Animation_cpmn1"),
+"bloom": SubResource("Animation_5m0k2"),
+"sleepIdle": SubResource("Animation_nxefo"),
+"wakeIdle": SubResource("Animation_g7hh2")
+}
+
+[node name="yellowFlow" type="Sprite2D"]
+texture = ExtResource("1_hxdu0")
+hframes = 17
+
+[node name="yellowPlayer" type="AnimationPlayer" parent="."]
+autoplay = "sleepIdle"
+libraries = {
+"": SubResource("AnimationLibrary_ha27u")
+}

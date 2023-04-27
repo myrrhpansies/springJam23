@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc4bvjrkcpe80"]
+
+[ext_resource type="Script" path="res://scenez/sprout.gd" id="1_b6iky"]
+[ext_resource type="Texture2D" uid="uid://c7ptd070pocpj" path="res://springArt/idleFair.png" id="1_mkvoi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c3uus"]
+radius = 40.335
+height = 143.936
+
+[node name="sprout" type="CharacterBody2D"]
+script = ExtResource("1_b6iky")
+speed = 50
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="sproutSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_mkvoi")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-15, 10)
+rotation = -0.559744
+shape = SubResource("CapsuleShape2D_c3uus")
