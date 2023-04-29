@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1u38imu25v7k"]
+
+[ext_resource type="Texture2D" uid="uid://cdvpm6geq0for" path="res://springArt/startEnd.png" id="1_bieli"]
+[ext_resource type="Script" path="res://scenez/start.gd" id="1_uh0gv"]
+[ext_resource type="Texture2D" uid="uid://c1d8d2qllxdx8" path="res://springArt/para003.png" id="2_74req"]
+[ext_resource type="Texture2D" uid="uid://dhqcq5wwuhjym" path="res://springArt/para004.png" id="3_1cdy3"]
+[ext_resource type="Texture2D" uid="uid://c504pp55o64j3" path="res://springArt/para005.png" id="4_op5x0"]
+[ext_resource type="Texture2D" uid="uid://cgnvlpk5a62u2" path="res://springArt/para002.png" id="5_267fl"]
+[ext_resource type="FontFile" uid="uid://4vlk2tfbpsev" path="res://springArt/Anthelion.ttf" id="6_p76of"]
+
+[node name="start" type="Node2D"]
+script = ExtResource("1_uh0gv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(30.2, 16.56)
+color = Color(0.0235294, 0.2, 0.168627, 1)
+
+[node name="StartEnd" type="Sprite2D" parent="."]
+position = Vector2(631, 311)
+texture = ExtResource("1_bieli")
+
+[node name="Para003" type="Sprite2D" parent="."]
+position = Vector2(781, -28)
+scale = Vector2(0.605098, 0.486032)
+texture = ExtResource("2_74req")
+
+[node name="Para004" type="Sprite2D" parent="."]
+position = Vector2(62, 364)
+texture = ExtResource("3_1cdy3")
+
+[node name="Para005" type="Sprite2D" parent="."]
+position = Vector2(213, 643)
+texture = ExtResource("4_op5x0")
+
+[node name="Para002" type="Sprite2D" parent="."]
+position = Vector2(468, 557)
+scale = Vector2(0.560669, 0.355933)
+texture = ExtResource("5_267fl")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 195.0
+offset_top = 42.0
+offset_right = 1012.0
+offset_bottom = 394.0
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("6_p76of")
+theme_override_font_sizes/font_size = 42
+text = "Little flower, you haave been turned into a spring fairy and tasked with waking your sisters for the coming season.  
+Move using WASD and wake using the arrow keys. 
+Do you accept your task?"
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+wrap_mode = 1
+
+[node name="start" type="Button" parent="."]
+offset_left = 244.0
+offset_top = 464.0
+offset_right = 378.0
+offset_bottom = 529.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.145098, 0.254902, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("6_p76of")
+theme_override_font_sizes/font_size = 50
+text = "Yes <3"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 643.0
+offset_top = 460.0
+offset_right = 816.0
+offset_bottom = 526.0
+theme_override_colors/icon_pressed_color = Color(0, 0, 0.615686, 1)
+theme_override_colors/icon_hover_color = Color(0, 0.65098, 0, 1)
+theme_override_fonts/font = ExtResource("6_p76of")
+theme_override_font_sizes/font_size = 50
+text = "no :("
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

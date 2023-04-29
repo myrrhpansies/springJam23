@@ -9,16 +9,21 @@ func handleInput():
 	var moveDirection = Input.get_vector("left", "right", "up", "down")
 	velocity = moveDirection * Speed
 	
+func endScene():
+	get_tree().change_scene_to_file("res://scenez/died.tscn")
+		
 func updateHealth():
 	if life < 3 and life > 0:
 		$Sprite2D.hide()
 		$hurt.show()
 		$hurt/AnimationPlayer.play("ouchiee")
 		await $hurt/AnimationPlayer.animation_finished
-		print("donzo")
 		$hurt.hide()
 		$hurt/AnimationPlayer.pause()
 		$Sprite2D.show()
+	elif life <= 0:
+		endScene()
+		
 	
 func updateParticles():
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("up") or Input.is_action_pressed("down"):
@@ -56,7 +61,6 @@ func updateAnimation():
 
 func _physics_process(delta):
 	handleInput()
-	
 	updateAnimation()
 	updateParticles()
 	move_and_slide()
