@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccdbky5337as6"
-path="res://.godot/imported/yelFlowSheet.png-d48773d5717673df2153e9ce4249fcdb.ctex"
+uid="uid://c1d8d2qllxdx8"
+path="res://.godot/imported/para003.png-b40f54ac275f0f29209798fc6aa4af23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://springArt/yelFlowSheet.png"
-dest_files=["res://.godot/imported/yelFlowSheet.png-d48773d5717673df2153e9ce4249fcdb.ctex"]
+source_file="res://springArt/para003.png"
+dest_files=["res://.godot/imported/para003.png-b40f54ac275f0f29209798fc6aa4af23.ctex"]
 
 [params]
 

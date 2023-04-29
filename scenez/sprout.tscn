@@ -1,29 +1,98 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc4bvjrkcpe80"]
+[gd_scene load_steps=16 format=3 uid="uid://ds8xne5wflc3p"]
 
-[ext_resource type="Script" path="res://scenez/sprout.gd" id="1_b6iky"]
-[ext_resource type="Texture2D" uid="uid://c7ptd070pocpj" path="res://springArt/idleFair.png" id="1_mkvoi"]
+[ext_resource type="Script" path="res://scenez/sprout.gd" id="1_d4hrc"]
+[ext_resource type="Texture2D" uid="uid://uro1ahnwxhvp" path="res://springArt/spritetry.png" id="2_otd3y"]
+[ext_resource type="Texture2D" uid="uid://cuufdn8nvycxi" path="res://springArt/particles.png" id="2_vk102"]
+[ext_resource type="Texture2D" uid="uid://rvujxjathu8" path="res://springArt/death.png" id="4_yqjus"]
 
-[sub_resource type="Animation" id="Animation_k41vd"]
-resource_name = "left"
-length = 0.56
-loop_mode = 1
-step = 0.07
-tracks/0/type = "value"
+[sub_resource type="Animation" id="Animation_pdjo1"]
+length = 0.001
+tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sproutSprite:frame")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(23, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CollisionShape2D:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(13, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CollisionShape2D:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CollisionShape2D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.64188, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wjtjl"]
+resource_name = "attack"
+length = 1.05
+step = 0.07
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0, 7, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 9, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 11, -0.25, 0, 0.25, 0, 12, -0.25, 0, 0.25, 0, 13, -0.25, 0, 0.25, 0, 14, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.7, 0.77, 0.84, 0.91, 0.98)
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("sproutSprite:flip_h")
+tracks/1/path = NodePath("../CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -32,199 +101,312 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/2/type = "value"
+tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("sproutSprite:position")
+tracks/2/path = NodePath("../CollisionShape2D:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.28),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-0.438352, -1.31506), Vector2(-0.438, -4)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CollisionShape2D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CollisionShape2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.607908, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_renib"]
+resource_name = "base"
+length = 0.55
+loop_mode = 1
+step = 0.07
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 23, -0.25, 0, 0.25, 0, 24, -0.25, 0, 0.25, 0, 25, -0.25, 0, 0.25, 0, 26, -0.25, 0, 0.25, 0, 27, -0.25, 0, 0.25, 0, 28, -0.25, 0, 0.25, 0, 29, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.28, 0.49)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -3, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.28, 0.49)
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/path = NodePath("../CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-13, 9)]
+"update": 1,
+"values": [false]
 }
-tracks/4/type = "value"
+tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:rotation")
+tracks/4/path = NodePath("../CollisionShape2D:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.0001),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.403531, -0.403531]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(9, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CollisionShape2D:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../CollisionShape2D:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.64188, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_r80cf"]
+[sub_resource type="Animation" id="Animation_0ihbw"]
+resource_name = "dash"
+length = 0.1
+loop_mode = 2
+step = 0.06
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(20, -0.25, 0, 0.25, 0, 21, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.06)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0nwkf"]
+resource_name = "dashTrans"
+length = 0.4
+step = 0.06
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 16, -0.25, 0, 0.25, 0, 17, -0.25, 0, 0.25, 0, 18, -0.25, 0, 0.25, 0, 19, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0, 21, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bol8u"]
+_data = {
+"RESET": SubResource("Animation_pdjo1"),
+"attack": SubResource("Animation_wjtjl"),
+"base": SubResource("Animation_renib"),
+"dash": SubResource("Animation_0ihbw"),
+"dashTrans": SubResource("Animation_0nwkf")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5vw6"]
+radius = 16.9984
+height = 68.8025
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47q7a"]
+height = 48.2297
+
+[sub_resource type="Animation" id="Animation_k77t8"]
+resource_name = "ouchiee"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_yqjus"), ExtResource("4_yqjus"), ExtResource("4_yqjus"), ExtResource("4_yqjus"), ExtResource("4_yqjus"), ExtResource("4_yqjus")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.67451), Color(1, 1, 1, 1), Color(1, 1, 1, 0.67451), Color(1, 1, 1, 1), Color(1, 1, 1, 0.67451)]
+}
+
+[sub_resource type="Animation" id="Animation_6fsqq"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sproutSprite:frame")
+tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [ExtResource("4_yqjus")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("sproutSprite:flip_h")
+tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sproutSprite:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(14, 11)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.529183]
+"values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_030yf"]
-resource_name = "right"
-length = 0.56
-loop_mode = 1
-step = 0.07
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sproutSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sproutSprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sproutSprite:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.28),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-1, -3)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(14, 11)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.529183]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rmfyi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m6rdw"]
 _data = {
-"RESET": SubResource("Animation_r80cf"),
-"left": SubResource("Animation_k41vd"),
-"right": SubResource("Animation_030yf")
+"RESET": SubResource("Animation_6fsqq"),
+"ouchiee": SubResource("Animation_k77t8")
 }
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c3uus"]
-radius = 36.3538
-height = 142.333
 
 [node name="sprout" type="CharacterBody2D"]
-script = ExtResource("1_b6iky")
-speed = 100
+collision_mask = 2
+script = ExtResource("1_d4hrc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "left"
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(0.724867, 0.83, 0.664, 0.921569)
+z_index = -1
+position = Vector2(24, 28)
+rotation = -0.577521
+scale = Vector2(0.5, 0.5)
+skew = -0.0628319
+amount = 12
+lifetime = 0.3
+speed_scale = 0.5
+randomness = 0.18
+lifetime_randomness = 0.09
+texture = ExtResource("2_vk102")
+emission_shape = 2
+emission_sphere_radius = 23.29
+spread = 71.14
+gravity = Vector2(0, 500)
+initial_velocity_min = 30.31
+initial_velocity_max = 50.51
+radial_accel_min = 20.2
+radial_accel_max = 32.32
+hue_variation_max = 0.44
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("2_otd3y")
+hframes = 30
+frame = 23
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+autoplay = "base"
 libraries = {
-"": SubResource("AnimationLibrary_rmfyi")
+"": SubResource("AnimationLibrary_bol8u")
 }
 
-[node name="sproutSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_mkvoi")
-flip_h = true
-hframes = 8
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, 11)
-rotation = 0.529183
-shape = SubResource("CapsuleShape2D_c3uus")
+position = Vector2(13, 10)
+rotation = -0.64188
+shape = SubResource("CapsuleShape2D_w5vw6")
+
+[node name="ouchBox" type="Area2D" parent="."]
+scale = Vector2(-1.66676, -1.41894)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ouchBox"]
+position = Vector2(-5.69361, -4.99819)
+rotation = -0.547005
+shape = SubResource("CapsuleShape2D_47q7a")
+
+[node name="hurt" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_yqjus")
+
+[node name="Timer" type="Timer" parent="hurt"]
+wait_time = 0.449
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hurt"]
+libraries = {
+"": SubResource("AnimationLibrary_m6rdw")
+}
+
+[connection signal="body_entered" from="ouchBox" to="." method="_on_ouch_box_body_entered"]

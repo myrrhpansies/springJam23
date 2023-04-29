@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lxnuanpvh2my"
-path="res://.godot/imported/blueSheet.png-a7e4b8b374c62018fc24248418ccd371.ctex"
+uid="uid://c504pp55o64j3"
+path="res://.godot/imported/para005.png-e8744ab5d6d15fd5c07d17baa4c861c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://springArt/blueSheet.png"
-dest_files=["res://.godot/imported/blueSheet.png-a7e4b8b374c62018fc24248418ccd371.ctex"]
+source_file="res://springArt/para005.png"
+dest_files=["res://.godot/imported/para005.png-e8744ab5d6d15fd5c07d17baa4c861c1.ctex"]
 
 [params]
 
