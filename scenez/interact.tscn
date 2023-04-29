@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgh1f6gy0pgo1"]
+
+[ext_resource type="Script" path="res://scenez/interact.gd" id="1_3whr2"]
+
+[node name="interact" type="Area2D"]
+script = ExtResource("1_3whr2")

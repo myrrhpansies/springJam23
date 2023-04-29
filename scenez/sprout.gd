@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var Speed: int = 300.0
-@onready var life: int = 3
+@onready var life: float = 3.0
 @onready var animations = $Sprite2D/AnimationPlayer
 
 func handleInput():
@@ -13,15 +13,18 @@ func endScene():
 	get_tree().change_scene_to_file("res://scenez/died.tscn")
 		
 func updateHealth():
+	
 	if life < 3 and life > 0:
+		$ouchBox/CollisionShape2D.set_deferred("disabled", true) 
 		$Sprite2D.hide()
 		$hurt.show()
 		$hurt/AnimationPlayer.play("ouchiee")
 		await $hurt/AnimationPlayer.animation_finished
+		$ouchBox/CollisionShape2D.set_deferred("disabled", false) 
 		$hurt.hide()
 		$hurt/AnimationPlayer.pause()
 		$Sprite2D.show()
-	elif life <= 0:
+	if life == 0:
 		endScene()
 		
 	
@@ -68,5 +71,7 @@ func _physics_process(delta):
 
 
 func _on_ouch_box_body_entered(body):
-	life -= 1
 	updateHealth()
+	life -= .25
+	
+	print(life)
