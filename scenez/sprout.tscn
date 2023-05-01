@@ -406,3 +406,4 @@ libraries = {
 }
 
 [connection signal="body_entered" from="ouchBox" to="." method="_on_ouch_box_body_entered"]
+[connection signal="body_exited" from="ouchBox" to="." method="_on_ouch_box_body_exited"]
