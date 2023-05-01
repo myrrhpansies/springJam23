@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var Speed: int = 300.0
-@onready var life: float = 5.0
+@onready var life: int = 5
 @onready var animations = $Sprite2D/AnimationPlayer
 
 func handleInput():
@@ -13,7 +13,7 @@ func endScene():
 	get_tree().change_scene_to_file("res://scenez/died.tscn")
 		
 func updateHealth():
-	
+#	$ouchBox/CollisionShape2D.set_deferred("disabled", true) 
 	if life < 5 and life > 0:
 		$Sprite2D.hide()
 		$hurt.show()
@@ -22,16 +22,17 @@ func updateHealth():
 		$hurt.hide()
 		$hurt/AnimationPlayer.pause()
 		$Sprite2D.show()
-		life -= .25
+#		$ouchBox/CollisionShape2D.set_deferred("disabled", false) 
+#		life -= .25
 	if life == 0:
+		$Sprite2D.hide()
+		$hurt.show()
+		$hurt/AnimationPlayer.play("ouchiee")
+		await $hurt/AnimationPlayer.animation_finished
 		endScene()
-		
 	
-func updateParticles():
-	if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("up") or Input.is_action_pressed("down"):
-		$CPUParticles2D.amount = 12
-	else:
-		$CPUParticles2D.amount = 8
+		
+
 		
 func updateAnimation():
 	if Input.is_action_just_pressed("left"):
@@ -64,19 +65,18 @@ func updateAnimation():
 func _physics_process(delta):
 	handleInput()
 	updateAnimation()
-	updateParticles()
 	move_and_slide()
 
 
 
 func _on_ouch_box_body_entered(body):
+	$ouchBox/CollisionShape2D.set_deferred("disabled", true)
+	life -= 1
 	updateHealth()
-	$ouchBox/CollisionShape2D.set_deferred("disabled", true) 
-	
-	
+	$ouchBox/Timer.start()
 	print(life)
+	
 
-
-func _on_ouch_box_body_exited(body):
-#	$ouchBox/CollisionShape2D.set_deferred("disabled", false)
-	print("yep yep")
+func _on_timer_timeout():
+	$ouchBox/CollisionShape2D.set_deferred("disabled", false)
+	print('time out')

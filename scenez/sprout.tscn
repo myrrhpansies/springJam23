@@ -396,6 +396,9 @@ position = Vector2(-5.69361, -4.99819)
 rotation = -0.547005
 shape = SubResource("CapsuleShape2D_47q7a")
 
+[node name="Timer" type="Timer" parent="ouchBox"]
+one_shot = true
+
 [node name="hurt" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("4_yqjus")
@@ -407,3 +410,4 @@ libraries = {
 
 [connection signal="body_entered" from="ouchBox" to="." method="_on_ouch_box_body_entered"]
 [connection signal="body_exited" from="ouchBox" to="." method="_on_ouch_box_body_exited"]
+[connection signal="timeout" from="ouchBox/Timer" to="." method="_on_timer_timeout"]
