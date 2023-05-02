@@ -331,6 +331,7 @@ _data = {
 }
 
 [node name="sprout" type="CharacterBody2D"]
+position = Vector2(269, 168)
 collision_mask = 2
 script = ExtResource("1_d4hrc")
 
@@ -342,7 +343,7 @@ rotation = -0.577521
 scale = Vector2(0.5, 0.5)
 skew = -0.0628319
 amount = 12
-lifetime = 0.3
+lifetime = 0.6
 speed_scale = 0.5
 randomness = 0.18
 lifetime_randomness = 0.09
@@ -370,6 +371,10 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 4250
+limit_bottom = 2600
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(13, 10)

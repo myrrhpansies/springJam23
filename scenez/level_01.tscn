@@ -1,12 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsq7iele1syua"]
+[gd_scene load_steps=19 format=3 uid="uid://bsq7iele1syua"]
 
 [ext_resource type="Texture2D" uid="uid://cip7fji1drnsd" path="res://springArt/vineyTilez.png" id="1_igaap"]
+[ext_resource type="Texture2D" uid="uid://d35jns3urlur6" path="res://springArt/sky.png" id="1_jk587"]
+[ext_resource type="Texture2D" uid="uid://02iowbw2llym" path="res://springArt/para010.png" id="2_lhsgq"]
 [ext_resource type="PackedScene" uid="uid://ds8xne5wflc3p" path="res://scenez/sprout.tscn" id="2_qb5xw"]
+[ext_resource type="Texture2D" uid="uid://dhqcq5wwuhjym" path="res://springArt/para004.png" id="2_swtvk"]
 [ext_resource type="Texture2D" uid="uid://cdo76h1ubhghr" path="res://springArt/leaf001.png" id="3_kb2if"]
+[ext_resource type="Texture2D" uid="uid://hfwth54cfal6" path="res://springArt/para009.png" id="3_mer4r"]
 [ext_resource type="Texture2D" uid="uid://bh28nixmvug28" path="res://springArt/leaf002.png" id="4_h5jhc"]
+[ext_resource type="Texture2D" uid="uid://cgnvlpk5a62u2" path="res://springArt/para002.png" id="5_a2fr4"]
 [ext_resource type="Texture2D" uid="uid://df7srhu2coa6b" path="res://springArt/leaf003.png" id="5_g2b4s"]
 [ext_resource type="Texture2D" uid="uid://cwoi5q62pdumb" path="res://springArt/leaf004.png" id="6_t62yo"]
 [ext_resource type="Texture2D" uid="uid://b43yem2l7vi6r" path="res://springArt/leaf005.png" id="7_cn76g"]
+[ext_resource type="Texture2D" uid="uid://h2luy42uuuj4" path="res://springArt/fore001.png" id="9_3rjiy"]
+[ext_resource type="Texture2D" uid="uid://da5bk3btsntha" path="res://springArt/fore002.png" id="9_q1e1l"]
+[ext_resource type="PackedScene" uid="uid://cifwc6dywvj1o" path="res://scenez/blue_flower.tscn" id="15_esca4"]
+[ext_resource type="PackedScene" uid="uid://2de2hii0wy0c" path="res://scenez/pink_flower.tscn" id="16_goalq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8bt0"]
 texture = ExtResource("1_igaap")
@@ -145,10 +154,65 @@ sources/0 = SubResource("TileSetAtlasSource_l8bt0")
 
 [node name="Level01" type="Node2D"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(2107.5, 1350.5)
+scale = Vector2(2.3555, 1.4185)
+texture = ExtResource("1_jk587")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.592157)
+position = Vector2(248, -60)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(2000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+modulate = Color(0.32549, 0.392157, 0.631373, 1)
+position = Vector2(818, 1491)
+scale = Vector2(1, 0.705)
+texture = ExtResource("2_swtvk")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.592157)
+position = Vector2(983, -71)
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(2000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0.239216, 0.239216, 0.239216, 1)
+position = Vector2(751, 1149)
+texture = ExtResource("2_lhsgq")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.592157)
+position = Vector2(163, -326)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(2500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+modulate = Color(0.6, 0.6, 0.6, 1)
+position = Vector2(751, 1149)
+texture = ExtResource("3_mer4r")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.592157)
+position = Vector2(-131, -439)
+motion_scale = Vector2(0.75, 0.75)
+motion_mirroring = Vector2(2000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+modulate = Color(0.32549, 0.392157, 0.631373, 1)
+position = Vector2(751, 1149)
+texture = ExtResource("5_a2fr4")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_1py4i")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 262144, 0, 65536, 262144, 1, 1, 327680, 0, 65537, 327680, 1, 2, 327680, 0, 3, 131072, 4, 4, 65536, 2, 5, 65536, 2, 6, 65536, 2, 7, 65536, 2, 8, 65536, 2, 9, 65536, 2, 10, 65536, 2, 11, 65536, 2, 12, 65536, 2, 13, 65536, 2, 14, 65536, 2, 15, 65536, 2, 16, 131072, 4, 17, 65536, 2, 18, 65536, 2, 19, 327680, 0, 65555, 327680, 1, 20, 393216, 0, 65556, 393216, 1, 131092, 393216, 1, 196628, 393216, 1, 262164, 327680, 4, 327700, 393216, 1, 393236, 393216, 1, 655380, 327680, 4, 589844, 393216, 1, 524308, 393216, 1, 458772, 393216, 1, 720915, 327680, 1, 786451, 327680, 2, 720916, 393216, 1, 786452, 393216, 2, 786450, 65536, 2, 786449, 65536, 2, 786448, 65536, 2, 786447, 65536, 2, 786446, 65536, 2, 786445, 65536, 5, 786444, 65536, 2, 786443, 65536, 2, 786442, 65536, 2, 786441, 65536, 2, 786440, 65536, 2, 786439, 65536, 5, 786438, 327680, 2, 786437, 327680, 2, 786436, 327680, 2, 786435, 65536, 2, 786434, 65536, 2, 786433, 327680, 2, 720896, 393216, 1, 786432, 262144, 2, 720897, 327680, 1, 655360, 393216, 1, 589824, 393216, 1, 524288, 393216, 1, 458752, 393216, 1, 393216, 393216, 1, 327680, 393216, 1, 262144, 262144, 5, 196608, 458752, 4, 131072, 458752, 4, 65539, 393216, 1, 131075, 262144, 2, 65540, 327680, 1, 262145, 65536, 0, 327681, 327680, 1, 262146, 65536, 0, 262147, 327680, 0, 65552, 393216, 1, 131088, 393216, 1, 196624, 393216, 1, 262160, 393216, 1, 327696, 393216, 1, 393232, 393216, 1, 458768, 262144, 5, 524304, 131072, 5, 589840, 327680, 4, 655376, 262144, 2, 655377, 327680, 2, 655379, 0, 0, 655378, 131072, 0, 458769, 327680, 5, 458770, 131072, 0, 262163, 65536, 0, 262162, 0, 0, 589839, 327680, 0, 589838, 327680, 0, 589837, 327680, 0, 589836, 327680, 0, 589835, 327680, 0, 589834, 131072, 4, 589833, 327680, 2, 589832, 327680, 2, 589831, 327680, 2, 589829, 327680, 0, 589830, 327680, 2, 589828, 327680, 0, 589827, 327680, 0, 589826, 262144, 2, 720903, 458752, 3, 655370, 458752, 5, 720909, 458752, 3, 524290, 262144, 1, 458754, 262144, 1, 393218, 262144, 0, 393219, 131072, 0, 458755, 327680, 1, 262148, 327680, 0, 327684, 327680, 1, 262149, 393216, 0, 327685, 393216, 1, 131076, 327680, 0, 131077, 327680, 2, 131078, 327680, 2, 131079, 327680, 2, 131080, 327680, 2, 131081, 131072, 4, 393221, 262144, 2, 393222, 327680, 2, 393223, 327680, 2, 393227, 327680, 2, 393228, 327680, 2, 131082, 131072, 0, 327693, 327680, 1, 393229, 327680, 2, 327694, 393216, 1, 393230, 393216, 2, 131086, 458752, 3, 196622, 458752, 4, 262158, 458752, 4, 196617, 458752, 4, 262153, 458752, 5, 196620, 524288, 1, 458761, 524288, 1, 393224, 131072, 0, 393226, 0, 0)
+layer_0/tile_data = PackedInt32Array(0, 262144, 0, 65536, 262144, 1, 1, 327680, 0, 65537, 327680, 1, 2, 327680, 0, 3, 131072, 4, 4, 65536, 2, 5, 65536, 2, 6, 65536, 2, 7, 65536, 2, 8, 65536, 2, 9, 65536, 2, 10, 65536, 2, 11, 65536, 2, 12, 65536, 2, 13, 65536, 2, 14, 65536, 2, 15, 65536, 2, 16, 131072, 4, 17, 65536, 2, 18, 65536, 2, 19, 327680, 0, 65555, 327680, 1, 20, 393216, 0, 65556, 393216, 1, 131092, 393216, 1, 196628, 393216, 1, 262164, 327680, 4, 327700, 393216, 1, 393236, 393216, 1, 655380, 327680, 4, 589844, 393216, 1, 524308, 393216, 1, 458772, 393216, 1, 720915, 327680, 1, 786451, 327680, 2, 720916, 393216, 1, 786452, 393216, 2, 786450, 65536, 2, 786449, 65536, 2, 786448, 65536, 2, 786447, 65536, 2, 786446, 65536, 2, 786445, 65536, 5, 786444, 65536, 2, 786443, 65536, 2, 786442, 65536, 2, 786441, 65536, 2, 786440, 65536, 2, 786439, 65536, 5, 786438, 327680, 2, 786437, 327680, 2, 786436, 327680, 2, 786435, 65536, 2, 786434, 65536, 2, 786433, 327680, 2, 720896, 393216, 1, 786432, 262144, 2, 720897, 327680, 1, 655360, 393216, 1, 589824, 393216, 1, 524288, 393216, 1, 458752, 393216, 1, 393216, 393216, 1, 327680, 393216, 1, 262144, 262144, 5, 196608, 458752, 4, 131072, 458752, 4, 65539, 393216, 1, 131075, 262144, 2, 65540, 327680, 1, 262145, 65536, 0, 327681, 327680, 1, 262146, 65536, 0, 262147, 327680, 0, 65552, 393216, 1, 131088, 393216, 1, 196624, 393216, 1, 262160, 393216, 1, 327696, 393216, 1, 393232, 393216, 1, 458768, 262144, 5, 524304, 131072, 5, 589840, 327680, 4, 655376, 262144, 2, 655377, 327680, 2, 655379, 0, 0, 655378, 131072, 0, 458769, 327680, 5, 458770, 131072, 0, 262163, 65536, 0, 262162, 0, 0, 589839, 327680, 0, 589838, 327680, 0, 589837, 327680, 0, 589836, 327680, 0, 589835, 327680, 0, 589834, 131072, 4, 589833, 327680, 2, 589832, 327680, 2, 589831, 327680, 2, 589829, 327680, 0, 589830, 327680, 2, 589828, 327680, 0, 589827, 327680, 0, 589826, 262144, 2, 720903, 458752, 3, 655370, 458752, 5, 720909, 458752, 3, 524290, 262144, 1, 458754, 262144, 1, 393218, 262144, 0, 393219, 131072, 0, 458755, 327680, 1, 262148, 327680, 0, 327684, 327680, 1, 262149, 393216, 0, 327685, 393216, 1, 131076, 327680, 0, 131077, 327680, 2, 131078, 327680, 2, 131079, 327680, 2, 131080, 327680, 2, 131081, 131072, 4, 393221, 262144, 2, 393222, 327680, 2, 393223, 327680, 2, 393227, 327680, 2, 393228, 327680, 2, 131082, 131072, 0, 327693, 327680, 1, 393229, 327680, 2, 327694, 393216, 1, 393230, 393216, 2, 131086, 458752, 3, 196622, 458752, 4, 262158, 458752, 4, 196617, 458752, 4, 262153, 458752, 5, 196620, 524288, 1, 458761, 524288, 1, 393224, 131072, 0, 393226, 0, 0, 131090, 524288, 1)
 
 [node name="sprout" parent="." instance=ExtResource("2_qb5xw")]
 position = Vector2(377, 341)
@@ -441,3 +505,43 @@ rotation = 1.8648
 texture = ExtResource("7_cn76g")
 flip_h = true
 flip_v = true
+
+[node name="foreground" type="ParallaxBackground" parent="."]
+layer = 10
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="foreground"]
+modulate = Color(1, 1, 1, 0.513726)
+z_index = 4
+position = Vector2(0, -568)
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(2000, 2000)
+
+[node name="Sprite2D" type="Sprite2D" parent="foreground/ParallaxLayer2"]
+z_as_relative = false
+position = Vector2(964, 962)
+texture = ExtResource("9_q1e1l")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="foreground"]
+modulate = Color(1, 1, 1, 0.513726)
+z_index = 4
+position = Vector2(-8, -528)
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(2000, 2000)
+
+[node name="Sprite2D" type="Sprite2D" parent="foreground/ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.521569)
+z_as_relative = false
+position = Vector2(964, 962)
+texture = ExtResource("9_3rjiy")
+
+[node name="blueFlower" parent="." instance=ExtResource("15_esca4")]
+position = Vector2(521, 745)
+
+[node name="blueFlower2" parent="." instance=ExtResource("15_esca4")]
+position = Vector2(1907, 1347)
+
+[node name="blueFlower3" parent="." instance=ExtResource("15_esca4")]
+position = Vector2(2040, 2344)
+
+[node name="pinkFlower" parent="." instance=ExtResource("16_goalq")]
+position = Vector2(999, 348)
