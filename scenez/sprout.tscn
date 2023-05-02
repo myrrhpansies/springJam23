@@ -159,7 +159,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(3, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.28, 0.49)
 }
 tracks/2/type = "bezier"
@@ -170,50 +170,38 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -3, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-1, -0.25, 0, 0.25, 0, -3, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.28, 0.49)
 }
-tracks/3/type = "value"
+tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../CollisionShape2D:disabled")
+tracks/3/path = NodePath("../CollisionShape2D:position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(7, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../CollisionShape2D:position:x")
+tracks/4/path = NodePath("../CollisionShape2D:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(9, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(6, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../CollisionShape2D:position:y")
+tracks/5/path = NodePath("../CollisionShape2D:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../CollisionShape2D:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(-0.64188, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -274,11 +262,12 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5vw6"]
-radius = 16.9984
-height = 68.8025
+radius = 13.1958
+height = 64.4012
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47q7a"]
-height = 48.2297
+radius = 11.7231
+height = 47.5969
 
 [sub_resource type="Animation" id="Animation_6fsqq"]
 length = 0.001
@@ -388,11 +377,12 @@ rotation = -0.64188
 shape = SubResource("CapsuleShape2D_w5vw6")
 
 [node name="ouchBox" type="Area2D" parent="."]
+position = Vector2(0, -4)
 scale = Vector2(-1.66676, -1.41894)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ouchBox"]
-position = Vector2(-5.69361, -4.99819)
+position = Vector2(-4.91999, -5.3784)
 rotation = -0.547005
 shape = SubResource("CapsuleShape2D_47q7a")
 
@@ -409,5 +399,4 @@ libraries = {
 }
 
 [connection signal="body_entered" from="ouchBox" to="." method="_on_ouch_box_body_entered"]
-[connection signal="body_exited" from="ouchBox" to="." method="_on_ouch_box_body_exited"]
 [connection signal="timeout" from="ouchBox/Timer" to="." method="_on_timer_timeout"]
