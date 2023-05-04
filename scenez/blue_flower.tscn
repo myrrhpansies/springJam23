@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://cifwc6dywvj1o"]
+[gd_scene load_steps=27 format=3 uid="uid://cifwc6dywvj1o"]
 
 [ext_resource type="Texture2D" uid="uid://dsxiwiqpyi4nq" path="res://springArt/blueSheet.png" id="1_0l4m3"]
+[ext_resource type="Script" path="res://scenez/blue_flower.gd" id="1_sj683"]
 [ext_resource type="PackedScene" uid="uid://cgh1f6gy0pgo1" path="res://scenez/interact.tscn" id="3_2q24c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ux8gb"]
@@ -172,14 +173,13 @@ animations = [{
 radius = 12.6813
 
 [node name="blueFlower" type="Node2D"]
+script = ExtResource("1_sj683")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.19209e-07, 0)
 sprite_frames = SubResource("SpriteFrames_yu3rb")
 animation = &"bloom"
 autoplay = "sleep"
-frame = 16
-frame_progress = 1.0
 
 [node name="interact" parent="." instance=ExtResource("3_2q24c")]
 position = Vector2(-1, -19)

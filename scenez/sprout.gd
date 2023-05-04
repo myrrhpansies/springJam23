@@ -5,6 +5,9 @@ extends CharacterBody2D
 @onready var life: int = 5
 @onready var animations = $Sprite2D/AnimationPlayer
 
+func _ready():
+	Global.player = self
+
 func handleInput():
 	var moveDirection = Input.get_vector("left", "right", "up", "down")
 	velocity = moveDirection * Speed
@@ -31,9 +34,6 @@ func updateHealth():
 		await $hurt/AnimationPlayer.animation_finished
 		endScene()
 	
-		
-
-		
 func updateAnimation():
 	if Input.is_action_just_pressed("left"):
 		animations.play("base")
@@ -66,7 +66,6 @@ func _physics_process(delta):
 	handleInput()
 	updateAnimation()
 	move_and_slide()
-
 
 
 func _on_ouch_box_body_entered(body):
