@@ -16,7 +16,7 @@ func AreaEnt(body):
 		print("yay!")
 		
 func AreaEx(body):
-	if body == $sprout/ouchBox:
+	if body == ouchies:
 		emit_signal("Back")
 		print("boo")		
 		
