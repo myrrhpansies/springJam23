@@ -21,10 +21,11 @@ func wakeSwitchOff():
 	wakeable = false	
 	
 func bloom():
-	if wakeable and Input.is_action_just_pressed("blueAttack") and !honk:
-		$AnimatedSprite2D.play("bloom")
-		await $AnimatedSprite2D.animation_finished
-		$AnimatedSprite2D.play("wake")
+	if !honk and wakeable and Input.is_action_just_pressed("yellAttack") :
+		$arise.play("bloom")
+		await $arise.animation_finished
+		$interact/CollisionShape2D
+		$arise.play("wake")
 		honk = true
 	else:
-		pass	
+		pass

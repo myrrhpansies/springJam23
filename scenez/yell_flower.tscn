@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://camlkyqvwr0xg"]
+[gd_scene load_steps=27 format=3 uid="uid://camlkyqvwr0xg"]
 
+[ext_resource type="Script" path="res://scenez/yell_flower.gd" id="1_26t8b"]
 [ext_resource type="Texture2D" uid="uid://ccdbky5337as6" path="res://springArt/yelFlowSheet.png" id="1_bnte3"]
 [ext_resource type="PackedScene" uid="uid://cgh1f6gy0pgo1" path="res://scenez/interact.tscn" id="2_arp71"]
 
@@ -172,6 +173,7 @@ animations = [{
 radius = 12.6813
 
 [node name="yellFlower" type="Node2D"]
+script = ExtResource("1_26t8b")
 
 [node name="arise" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5jeyj")
