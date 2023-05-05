@@ -1,3 +1,4 @@
 extends Node
 
-var player 
+var interaction
+var player

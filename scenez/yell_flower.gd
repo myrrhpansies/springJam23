@@ -5,12 +5,13 @@ var honk = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$interact.Change.connect(wakeSwitchOn)
-	$interact.Back.connect(wakeSwitchOff)
+#	$interact.Change.connect(wakeSwitchOn)
+	#$interact.Back.connect(wakeSwitchOff)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	bloom()
 
 func wakeSwitchOn():
@@ -24,7 +25,6 @@ func bloom():
 	if !honk and wakeable and Input.is_action_just_pressed("yellAttack") :
 		$arise.play("bloom")
 		await $arise.animation_finished
-		$interact/CollisionShape2D
 		$arise.play("wake")
 		honk = true
 	else:

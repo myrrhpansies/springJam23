@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhrxgot2mwnk8"]
+
+[ext_resource type="PackedScene" uid="uid://camlkyqvwr0xg" path="res://scenez/yell_flower.tscn" id="1_4onv1"]
+[ext_resource type="PackedScene" uid="uid://cifwc6dywvj1o" path="res://scenez/blue_flower.tscn" id="2_jmfi8"]
+[ext_resource type="PackedScene" uid="uid://2de2hii0wy0c" path="res://scenez/pink_flower.tscn" id="3_smvu5"]
+[ext_resource type="PackedScene" uid="uid://ds8xne5wflc3p" path="res://scenez/sprout.tscn" id="4_80xff"]
+
+[node name="wtf" type="Node2D"]
+
+[node name="yellFlower" parent="." instance=ExtResource("1_4onv1")]
+position = Vector2(168, 188)
+
+[node name="blueFlower" parent="." instance=ExtResource("2_jmfi8")]
+position = Vector2(899, 185)
+
+[node name="pinkFlower" parent="." instance=ExtResource("3_smvu5")]
+position = Vector2(521, 527)
+
+[node name="sprout" parent="." instance=ExtResource("4_80xff")]
+position = Vector2(527, 246)

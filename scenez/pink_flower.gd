@@ -5,26 +5,38 @@ var honk = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#signals supposed to connect
 	$interact.Change.connect(wakeSwitchOn)
 	$interact.Back.connect(wakeSwitchOff)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	bloom()
-
+#
 func wakeSwitchOn():
+	#connect to this function if the Change signal is emitted
+	print("wake me up")
 	if !honk:
 		wakeable = true
+	else: 
+		pass
 	
 func wakeSwitchOff():
+	print("can't wake up")
 	wakeable = false	
+	
 	
 func bloom():
 	if wakeable and Input.is_action_just_pressed("pinkAttack") and !honk:
-		$arise.play("bloom")
-		await $arise.animation_finished
-		$arise.play("wake")
+		print("bloom")
+		$AnimatedSprite2D.play("bloom")
+		await $AnimatedSprite2D.animation_finished
+		$AnimatedSprite2D.play("wake")
 		honk = true
 	else:
 		pass	
+
+func _process(_delta):
+	bloom()
+
+
+	
+
+	

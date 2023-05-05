@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 
-@export var Speed: int = 300.0
+@export var Speed: int = 300
 @onready var life: int = 5
 @onready var animations = $Sprite2D/AnimationPlayer
+@onready var honkboxx = $PlayHorn/hornCol
+@onready var honkmation = $PlayHorn/AnimatedSprite2D
 
 func _ready():
 	Global.player = self
@@ -16,7 +18,6 @@ func endScene():
 	get_tree().change_scene_to_file("res://scenez/died.tscn")
 		
 func updateHealth():
-#	$ouchBox/CollisionShape2D.set_deferred("disabled", true) 
 	if life < 5 and life > 0:
 		$Sprite2D.hide()
 		$hurt.show()
@@ -25,8 +26,6 @@ func updateHealth():
 		$hurt.hide()
 		$hurt/AnimationPlayer.pause()
 		$Sprite2D.show()
-#		$ouchBox/CollisionShape2D.set_deferred("disabled", false) 
-#		life -= .25
 	if life == 0:
 		$Sprite2D.hide()
 		$hurt.show()
@@ -48,9 +47,16 @@ func updateAnimation():
 		await animations.animation_finished
 		animations.play("base")
 	elif Input.is_action_just_pressed("pinkAttack"):
+		honkboxx.set_deferred("disabled", false)
+		honkmation.show()
+		honkmation.play("pinkHorn")
 		animations.play("attack")
 		await animations.animation_finished
 		animations.play("base")
+		honkboxx.set_deferred("disabled", true)
+		honkmation.hide()
+		honkmation.pause()
+		print("done")
 	elif Input.is_action_just_pressed("yellAttack"):
 		animations.play("attack")
 		await animations.animation_finished
@@ -62,13 +68,34 @@ func updateAnimation():
 	else: 
 		pass
 
-func _physics_process(delta):
+	
+func honkAbout():
+	if Input.is_action_just_pressed("blueAttack"):
+		honkboxx.set_deferred("disabled", false)
+		honkmation.show()
+		honkmation.play("blueHonk")
+		await honkmation.animation_finished
+		honkboxx.set_deferred("disabled", true)
+		honkmation.hide()
+		honkmation.pause()
+		print("done")
+	elif Input.is_action_just_pressed("yellAttack"):
+		honkboxx.set_deferred("disabled", false)
+		honkmation.show()
+		honkmation.play("yellowHonk")
+		await honkmation.animation_finished
+		honkboxx.set_deferred("disabled", true)
+		honkmation.hide()
+		honkmation.pause()
+		print("done")
+
+func _physics_process(_delta):
 	handleInput()
 	updateAnimation()
 	move_and_slide()
 
 
-func _on_ouch_box_body_entered(body):
+func _on_ouch_box_body_entered(_body):
 	$ouchBox/CollisionShape2D.set_deferred("disabled", true)
 	life -= 1
 	updateHealth()
