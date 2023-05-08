@@ -175,7 +175,7 @@ radius = 12.6813
 [node name="blueFlower" type="Node2D"]
 script = ExtResource("1_sj683")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="arise" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.19209e-07, 0)
 sprite_frames = SubResource("SpriteFrames_yu3rb")
 animation = &"bloom"
@@ -184,8 +184,6 @@ autoplay = "sleep"
 [node name="interact" parent="." instance=ExtResource("3_2q24c")]
 position = Vector2(-1, -19)
 scale = Vector2(8.96, 9.04)
-collision_layer = 4
-collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
 position = Vector2(-0.223214, 0.110619)

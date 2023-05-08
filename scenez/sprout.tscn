@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://uro1ahnwxhvp" path="res://springArt/spritetry.png" id="2_otd3y"]
 [ext_resource type="Texture2D" uid="uid://cuufdn8nvycxi" path="res://springArt/particles.png" id="2_vk102"]
 [ext_resource type="Texture2D" uid="uid://rvujxjathu8" path="res://springArt/death.png" id="4_yqjus"]
-[ext_resource type="Script" path="res://scenez/PlayHorn.gd" id="6_w8ccp"]
 [ext_resource type="Texture2D" uid="uid://cxm7o64nkxn0t" path="res://springArt/honk/yellHonk01.png" id="7_3s50v"]
 [ext_resource type="Texture2D" uid="uid://dd5yf5fb2lwyk" path="res://springArt/honk/blueHonk01.png" id="7_71h8x"]
 [ext_resource type="Texture2D" uid="uid://dj1xgefosl78x" path="res://springArt/honk/blueHonk02.png" id="8_7a7dp"]
@@ -36,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://dk8sdpbsxgo5r" path="res://springArt/honk/pinkHonk08.png" id="24_otllm"]
 [ext_resource type="Texture2D" uid="uid://cn582ivx7qk53" path="res://springArt/honk/pinkHonk09.png" id="25_lxvb4"]
 [ext_resource type="Texture2D" uid="uid://3w2dbu5wmeau" path="res://springArt/honk/pinkHonk10.png" id="26_gajd4"]
+[ext_resource type="Script" path="res://scenez/honkDetector.gd" id="36_sprw0"]
 
 [sub_resource type="Animation" id="Animation_lyovu"]
 length = 0.001
@@ -489,9 +489,6 @@ _data = {
 "ouchiee": SubResource("Animation_k77t8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_th705"]
-size = Vector2(115, 42)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_pu0gr"]
 animations = [{
 "frames": [{
@@ -649,10 +646,13 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": true,
+"loop": false,
 "name": &"yellHorn",
 "speed": 15.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_th705"]
+size = Vector2(115, 42)
 
 [node name="sprout" type="CharacterBody2D"]
 position = Vector2(269, 168)
@@ -739,19 +739,19 @@ libraries = {
 "": SubResource("AnimationLibrary_m6rdw")
 }
 
-[node name="PlayHorn" type="Area2D" parent="."]
-script = ExtResource("6_w8ccp")
+[node name="honkDetector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("36_sprw0")
 
-[node name="hornCol" type="CollisionShape2D" parent="PlayHorn"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="honkDetector"]
+position = Vector2(-85, -1)
+sprite_frames = SubResource("SpriteFrames_pu0gr")
+animation = &"blueHorn"
+
+[node name="hornCol2" type="CollisionShape2D" parent="honkDetector"]
 position = Vector2(-84, 2)
 shape = SubResource("RectangleShape2D_th705")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayHorn"]
-position = Vector2(-92, -1)
-sprite_frames = SubResource("SpriteFrames_pu0gr")
-animation = &"pinkHorn"
-frame = 13
-frame_progress = 0.485285
 
 [connection signal="body_entered" from="ouchBox" to="." method="_on_ouch_box_body_entered"]
 [connection signal="timeout" from="ouchBox/Timer" to="." method="_on_timer_timeout"]

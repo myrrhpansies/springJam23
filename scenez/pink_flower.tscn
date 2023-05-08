@@ -175,7 +175,7 @@ radius = 11.6092
 [node name="pinkFlower" type="Node2D"]
 script = ExtResource("1_44oii")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="arise" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r7n4l")
 animation = &"bloom"
 autoplay = "sleep"

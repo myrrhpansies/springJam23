@@ -1,7 +1,7 @@
 extends Area2D
 signal Change
 signal Back
-@onready var horn = Global.interaction
+
 
 
 func _ready():
@@ -9,12 +9,12 @@ func _ready():
 	area_exited.connect(AreaEx)
 
 func AreaEnt(area):
-	if area == horn:
+	if area == Global.interaction:
 		emit_signal("Change")
 		print("yay!")
 		
 func AreaEx(area):
-	if area == horn:
+	if area == Global.interaction:
 		emit_signal("Back")
 		print("boo")		
 		

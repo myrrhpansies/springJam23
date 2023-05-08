@@ -4,8 +4,7 @@ extends CharacterBody2D
 @export var Speed: int = 300
 @onready var life: int = 5
 @onready var animations = $Sprite2D/AnimationPlayer
-@onready var honkboxx = $PlayHorn/hornCol
-@onready var honkmation = $PlayHorn/AnimatedSprite2D
+@onready var honkmation = $honkDetector/AnimatedSprite2D
 
 func _ready():
 	Global.player = self
@@ -47,16 +46,9 @@ func updateAnimation():
 		await animations.animation_finished
 		animations.play("base")
 	elif Input.is_action_just_pressed("pinkAttack"):
-		honkboxx.set_deferred("disabled", false)
-		honkmation.show()
-		honkmation.play("pinkHorn")
 		animations.play("attack")
 		await animations.animation_finished
 		animations.play("base")
-		honkboxx.set_deferred("disabled", true)
-		honkmation.hide()
-		honkmation.pause()
-		print("done")
 	elif Input.is_action_just_pressed("yellAttack"):
 		animations.play("attack")
 		await animations.animation_finished
@@ -67,24 +59,26 @@ func updateAnimation():
 		animations.play("dash")
 	else: 
 		pass
-
 	
 func honkAbout():
 	if Input.is_action_just_pressed("blueAttack"):
-		honkboxx.set_deferred("disabled", false)
 		honkmation.show()
-		honkmation.play("blueHonk")
+		honkmation.play("blueHorn")
 		await honkmation.animation_finished
-		honkboxx.set_deferred("disabled", true)
 		honkmation.hide()
 		honkmation.pause()
 		print("done")
 	elif Input.is_action_just_pressed("yellAttack"):
-		honkboxx.set_deferred("disabled", false)
 		honkmation.show()
-		honkmation.play("yellowHonk")
+		honkmation.play("yellHorn")
 		await honkmation.animation_finished
-		honkboxx.set_deferred("disabled", true)
+		honkmation.hide()
+		honkmation.pause()
+		print("done")
+	elif Input.is_action_just_pressed("pinkAttack"):
+		honkmation.show()
+		honkmation.play("pinkHorn")
+		await honkmation.animation_finished
 		honkmation.hide()
 		honkmation.pause()
 		print("done")
@@ -93,6 +87,7 @@ func _physics_process(_delta):
 	handleInput()
 	updateAnimation()
 	move_and_slide()
+	honkAbout()
 
 
 func _on_ouch_box_body_entered(_body):
