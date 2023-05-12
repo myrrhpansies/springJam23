@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2g06l4i0g4yo"]
+[gd_scene load_steps=7 format=3 uid="uid://c2g06l4i0g4yo"]
 
 [ext_resource type="Texture2D" uid="uid://nvugmfst2vin" path="res://icon.svg" id="1_1yf8o"]
 [ext_resource type="Script" path="res://scenez/enemy_01.gd" id="1_vxwdu"]
+[ext_resource type="PackedScene" uid="uid://cgh1f6gy0pgo1" path="res://scenez/interact.tscn" id="3_wwg54"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_22vug"]
 animations = [{
@@ -17,9 +18,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5vpq"]
 size = Vector2(120, 118)
 
-[node name="Enemy01" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1jfmp"]
+radius = 113.283
+
+[node name="Enemy01" type="CharacterBody2D" node_paths=PackedStringArray("movement_target", "navigation_agent")]
 position = Vector2(486, 270)
 script = ExtResource("1_vxwdu")
+movement_target = NodePath("")
+navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_22vug")
@@ -28,3 +34,10 @@ sprite_frames = SubResource("SpriteFrames_22vug")
 shape = SubResource("RectangleShape2D_i5vpq")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="interact" parent="." instance=ExtResource("3_wwg54")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
+shape = SubResource("CircleShape2D_1jfmp")

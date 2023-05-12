@@ -227,9 +227,10 @@ layer_0/tile_data = PackedInt32Array(0, 262144, 0, 65536, 262144, 1, 1, 327680, 
 [node name="sprout" parent="." instance=ExtResource("2_qb5xw")]
 position = Vector2(438, 521)
 
-[node name="Enemy01" parent="." instance=ExtResource("8_54vh7")]
+[node name="Enemy01" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("8_54vh7")]
 position = Vector2(1532, 805)
 scale = Vector2(0.8, 0.8)
+movement_target = NodePath("../sprout")
 
 [node name="leaves" type="Node2D" parent="."]
 

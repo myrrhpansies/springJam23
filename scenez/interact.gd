@@ -3,7 +3,6 @@ signal Change
 signal Back
 
 
-
 func _ready():
 	area_entered.connect(AreaEnt)
 	area_exited.connect(AreaEx)
