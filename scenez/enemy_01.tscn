@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2g06l4i0g4yo"]
 
-[ext_resource type="Texture2D" uid="uid://nvugmfst2vin" path="res://icon.svg" id="1_1yf8o"]
 [ext_resource type="Script" path="res://scenez/enemy_01.gd" id="1_vxwdu"]
+[ext_resource type="Texture2D" uid="uid://be6lnnbge25fb" path="res://springArt/enemies/enemiesTest.png" id="2_2cidv"]
 [ext_resource type="PackedScene" uid="uid://cgh1f6gy0pgo1" path="res://scenez/interact.tscn" id="3_wwg54"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_22vug"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_1yf8o")
+"texture": ExtResource("2_2cidv")
 }],
 "loop": true,
 "name": &"default",

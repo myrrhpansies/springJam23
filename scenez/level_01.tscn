@@ -227,6 +227,11 @@ layer_0/tile_data = PackedInt32Array(0, 262144, 0, 65536, 262144, 1, 1, 327680, 
 [node name="sprout" parent="." instance=ExtResource("2_qb5xw")]
 position = Vector2(438, 521)
 
+[node name="Camera2D" type="Camera2D" parent="sprout"]
+limit_left = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
 [node name="Enemy01" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("8_54vh7")]
 position = Vector2(1532, 805)
 scale = Vector2(0.8, 0.8)

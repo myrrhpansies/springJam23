@@ -706,12 +706,6 @@ libraries = {
 "": SubResource("AnimationLibrary_bol8u")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-limit_right = 4250
-limit_bottom = 2600
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(13, 10)
 rotation = -0.64188

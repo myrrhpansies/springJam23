@@ -12,11 +12,17 @@ func _ready():
 	
 func madeAware():
 	chase = true
+	print("hey there")
+
 
 func actor_setup():
 	if chase:
 		await get_tree().physics_frame
 		set_movement_target(movement_target.position)
+		if	movement_target.position.x > self.position.x:
+			$AnimatedSprite2D.flip_h = true
+		if	movement_target.position.x < self.position.x:
+			$AnimatedSprite2D.flip_h = false	
 
 func set_movement_target(target_point: Vector2):
 	navigation_agent.target_position = target_point
