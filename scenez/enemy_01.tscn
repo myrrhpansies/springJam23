@@ -1,43 +1,241 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2g06l4i0g4yo"]
+[gd_scene load_steps=12 format=3 uid="uid://c2g06l4i0g4yo"]
 
 [ext_resource type="Script" path="res://scenez/enemy_01.gd" id="1_vxwdu"]
-[ext_resource type="Texture2D" uid="uid://be6lnnbge25fb" path="res://springArt/enemies/enemiesTest.png" id="2_2cidv"]
+[ext_resource type="Texture2D" uid="uid://dcpwjv3lyibib" path="res://springArt/enemies/enemyA.png" id="2_xs7fl"]
 [ext_resource type="PackedScene" uid="uid://cgh1f6gy0pgo1" path="res://scenez/interact.tscn" id="3_wwg54"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_22vug"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_2cidv")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="Animation" id="Animation_jvr5s"]
+resource_name = "new_animation"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5vpq"]
-size = Vector2(120, 118)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kjyoc"]
+radius = 17.831
+height = 68.7136
+
+[sub_resource type="Animation" id="Animation_uw8of"]
+resource_name = "Idol"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../enemyCol:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_kjyoc")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../enemyCol:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(20, 15), Vector2(20, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../enemyCol:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.47709, 1.04783), Vector2(3.47709, 1.04783)]
+}
+
+[sub_resource type="Animation" id="Animation_vdeb4"]
+resource_name = "Attack"
+length = 0.32
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -6.37832), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../enemyCol:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 11), Vector2(2, 16)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../enemyCol:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.47709, 1.04783)]
+}
+
+[sub_resource type="Animation" id="Animation_0ogwr"]
+resource_name = "Death"
+
+[sub_resource type="Animation" id="Animation_0jjpu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../enemyCol:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_kjyoc")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../enemyCol:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../enemyCol:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.47709, 1.04783)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3tg60"]
+_data = {
+"Attack": SubResource("Animation_vdeb4"),
+"Death": SubResource("Animation_0ogwr"),
+"Idol": SubResource("Animation_uw8of"),
+"RESET": SubResource("Animation_0jjpu"),
+"new_animation": SubResource("Animation_jvr5s")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jfmp"]
 radius = 113.283
 
-[node name="Enemy01" type="CharacterBody2D" node_paths=PackedStringArray("movement_target", "navigation_agent")]
+[node name="EnemyA" type="CharacterBody2D" node_paths=PackedStringArray("movement_target", "navigation_agent")]
 position = Vector2(486, 270)
 script = ExtResource("1_vxwdu")
 movement_target = NodePath("")
 navigation_agent = NodePath("NavigationAgent2D")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_22vug")
+[node name="sprites" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("2_xs7fl")
+hframes = 14
+frame = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_i5vpq")
+[node name="Animation" type="AnimationPlayer" parent="sprites"]
+libraries = {
+"": SubResource("AnimationLibrary_3tg60")
+}
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 debug_enabled = true
 
 [node name="interact" parent="." instance=ExtResource("3_wwg54")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
 shape = SubResource("CircleShape2D_1jfmp")
+
+[node name="enemyCol" type="CollisionShape2D" parent="."]
+position = Vector2(13, 0)
+scale = Vector2(3.47709, 1.04783)
+shape = SubResource("CapsuleShape2D_kjyoc")
