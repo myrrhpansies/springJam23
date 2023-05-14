@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ds8xne5wflc3p"]
+[gd_scene load_steps=55 format=3 uid="uid://ds8xne5wflc3p"]
 
 [ext_resource type="Script" path="res://scenez/sprout.gd" id="1_d4hrc"]
 [ext_resource type="Texture2D" uid="uid://rhj4vnd8vacp" path="res://springArt/glow001.png" id="2_nep6m"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cn582ivx7qk53" path="res://springArt/honk/pinkHonk09.png" id="25_lxvb4"]
 [ext_resource type="Texture2D" uid="uid://3w2dbu5wmeau" path="res://springArt/honk/pinkHonk10.png" id="26_gajd4"]
 [ext_resource type="Script" path="res://scenez/honkDetector.gd" id="36_sprw0"]
+[ext_resource type="Script" path="res://scenez/enemyInt.gd" id="37_e2yhc"]
 
 [sub_resource type="Animation" id="Animation_lyovu"]
 length = 0.001
@@ -654,6 +655,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_th705"]
 size = Vector2(115, 42)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5cc6i"]
+radius = 143.283
+
 [node name="sprout" type="CharacterBody2D"]
 position = Vector2(269, 168)
 collision_mask = 2
@@ -746,6 +750,14 @@ animation = &"blueHorn"
 [node name="hornCol2" type="CollisionShape2D" parent="honkDetector"]
 position = Vector2(-84, 2)
 shape = SubResource("RectangleShape2D_th705")
+
+[node name="enemyInt" type="Area2D" parent="."]
+collision_mask = 16
+script = ExtResource("37_e2yhc")
+
+[node name="enIntCol" type="CollisionShape2D" parent="enemyInt"]
+rotation = -0.0328535
+shape = SubResource("CircleShape2D_5cc6i")
 
 [connection signal="body_entered" from="ouchBox" to="." method="_on_ouch_box_body_entered"]
 [connection signal="timeout" from="ouchBox/Timer" to="." method="_on_timer_timeout"]

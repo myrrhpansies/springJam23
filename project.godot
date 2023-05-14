@@ -67,6 +67,7 @@ dash={
 2d_physics/layer_2="ground"
 2d_physics/layer_3="flowers"
 2d_physics/layer_4="horn"
+2d_physics/layer_5="enemy"
 
 [rendering]
 

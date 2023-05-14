@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmq7sclygu426"]
+
+[ext_resource type="Script" path="res://scenez/enemy_attention.gd" id="1_1lyhf"]
+
+[node name="enemyAttention" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_1lyhf")

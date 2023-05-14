@@ -8,7 +8,7 @@ var chase = false
 func _ready():
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 4.0
-	$interact.Change.connect(madeAware)
+	$enemyAttention.attentive.connect(madeAware)
 	
 func madeAware():
 	chase = true
@@ -19,10 +19,11 @@ func actor_setup():
 	if chase:
 		await get_tree().physics_frame
 		set_movement_target(movement_target.position)
+		$sprites/Animation.play("Attack")
 		if	movement_target.position.x > self.position.x:
-			$AnimatedSprite2D.flip_h = true
+			$sprites.flip_h = true
 		if	movement_target.position.x < self.position.x:
-			$AnimatedSprite2D.flip_h = false	
+			$sprites.flip_h = false	
 
 func set_movement_target(target_point: Vector2):
 	navigation_agent.target_position = target_point
