@@ -6,12 +6,11 @@ signal bloomIt
 func _ready():
 	$interact.Change.connect(wakeSwitchOn)
 	$interact.Back.connect(wakeSwitchOff)
-
-
+	
 func wakeSwitchOn():
 	if !honk:
 		wakeable = true
-	
+
 func wakeSwitchOff():
 	wakeable = false	
 	print("wake" +str(wakeable))
