@@ -433,6 +433,8 @@ radius = 103.947
 
 [node name="EnemyA" type="CharacterBody2D" node_paths=PackedStringArray("movement_target", "navigation_agent")]
 position = Vector2(486, 270)
+collision_layer = 16
+collision_mask = 3
 script = ExtResource("1_vxwdu")
 movement_target = NodePath("")
 navigation_agent = NodePath("NavigationAgent2D")
