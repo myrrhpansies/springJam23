@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var life: int = 5
 @onready var animations = $Sprite2D/AnimationPlayer
 @onready var honkmation = $honkDetector/AnimatedSprite2D
+var canMove = true
 
 func _ready():
 	Global.player = self
