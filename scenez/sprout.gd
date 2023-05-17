@@ -34,49 +34,56 @@ func updateHealth():
 		endScene()
 	
 func updateAnimation():
-	if Input.is_action_just_pressed("left"):
+	if Input.is_action_just_pressed("left") and canMove:
 		animations.play("base")
 		scale.y = 1
 		rotation_degrees = 0
-	elif Input.is_action_just_pressed("right"):
+	elif Input.is_action_just_pressed("right") and canMove:
 		animations.play("base")
 		scale.y = -1
 		rotation_degrees = 180
-	elif Input.is_action_just_pressed("blueAttack"):
-		animations.play("attack")
-		await animations.animation_finished
-		animations.play("base")
-	elif Input.is_action_just_pressed("pinkAttack"):
-		animations.play("attack")
-		await animations.animation_finished
-		animations.play("base")
-	elif Input.is_action_just_pressed("yellAttack"):
-		animations.play("attack")
-		await animations.animation_finished
-		animations.play("base")
-	elif Input.is_action_just_pressed("dash"):
-		animations.play("dashTrans")	
-		await animations.animation_finished
-		animations.play("dash")
-	else: 
-		pass
+	if canMove:
+		if Input.is_action_just_pressed("blueAttack"):
+			canMove = false
+			animations.play("attack")
+			await animations.animation_finished
+			animations.play("base")
+			canMove = true
+		elif Input.is_action_just_pressed("pinkAttack"):
+			canMove = false
+			animations.play("attack")
+			await animations.animation_finished
+			animations.play("base")
+			canMove = true
+		elif Input.is_action_just_pressed("yellAttack"):
+			canMove = false
+			animations.play("attack")
+			await animations.animation_finished
+			animations.play("base")
+			canMove = true
+		elif Input.is_action_just_pressed("dash"):
+			animations.play("dashTrans")	
+			await animations.animation_finished
+			animations.play("dash")
+		else: 
+			pass
 	
 func honkAbout():
-	if Input.is_action_just_pressed("blueAttack"):
+	if Input.is_action_just_pressed("blueAttack") and !canMove:
 		honkmation.show()
 		honkmation.play("blueHorn")
 		await honkmation.animation_finished
 		honkmation.hide()
 		honkmation.pause()
 		print("done")
-	elif Input.is_action_just_pressed("yellAttack"):
+	elif Input.is_action_just_pressed("yellAttack") and !canMove:
 		honkmation.show()
 		honkmation.play("yellHorn")
 		await honkmation.animation_finished
 		honkmation.hide()
 		honkmation.pause()
 		print("done")
-	elif Input.is_action_just_pressed("pinkAttack"):
+	elif Input.is_action_just_pressed("pinkAttack") and !canMove:
 		honkmation.show()
 		honkmation.play("pinkHorn")
 		await honkmation.animation_finished

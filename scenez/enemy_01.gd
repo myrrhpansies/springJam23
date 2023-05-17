@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var chase = false
 var killable = false
-@export var movement_speed : float = 200.0
+@export var movement_speed : float = 150.0
 @export var movement_target : Node
 @export var navigation_agent: NavigationAgent2D
 
