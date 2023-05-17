@@ -237,6 +237,11 @@ position = Vector2(1532, 805)
 scale = Vector2(0.8, 0.8)
 movement_target = NodePath("../sprout")
 
+[node name="Enemy02" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("8_54vh7")]
+position = Vector2(2994, 350)
+scale = Vector2(0.8, 0.8)
+movement_target = NodePath("../sprout")
+
 [node name="leaves" type="Node2D" parent="."]
 
 [node name="leaf1" type="Sprite2D" parent="leaves"]
