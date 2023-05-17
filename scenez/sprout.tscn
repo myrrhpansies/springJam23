@@ -655,8 +655,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_th705"]
 size = Vector2(115, 42)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5cc6i"]
-radius = 143.283
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vewhx"]
+radius = 82.0492
+height = 417.899
 
 [node name="sprout" type="CharacterBody2D"]
 position = Vector2(269, 168)
@@ -711,11 +712,13 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(13, 10)
 rotation = -0.64188
 shape = SubResource("CapsuleShape2D_w5vw6")
 
 [node name="ouchBox" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -4)
 scale = Vector2(-1.66676, -1.41894)
 collision_mask = 2
@@ -756,8 +759,9 @@ collision_mask = 16
 script = ExtResource("37_e2yhc")
 
 [node name="enIntCol" type="CollisionShape2D" parent="enemyInt"]
-rotation = -0.0328535
-shape = SubResource("CircleShape2D_5cc6i")
+position = Vector2(1, -2)
+rotation = 1.52248
+shape = SubResource("CapsuleShape2D_vewhx")
 
 [connection signal="body_entered" from="ouchBox" to="." method="_on_ouch_box_body_entered"]
 [connection signal="timeout" from="ouchBox/Timer" to="." method="_on_timer_timeout"]

@@ -175,8 +175,8 @@ height = 134.602
 
 [sub_resource type="Animation" id="Animation_uw8of"]
 resource_name = "Idol"
-length = 0.5
-loop_mode = 1
+length = 1.05
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -184,10 +184,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 11, 12]
+"values": [8, 9, 10, 11, 12, 8, 9, 10, 11, 12, 13]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -196,10 +196,10 @@ tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -12)]
+"values": [Vector2(0, 12), Vector2(0, -12), Vector2(-35, 1), Vector2(-70, -12), Vector2(-75, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -220,10 +220,10 @@ tracks/3/path = NodePath("../idolCol:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(21, 18), Vector2(19, 7)]
+"values": [Vector2(21, 27), Vector2(19, 7), Vector2(-16.5, 19), Vector2(-52, 7), Vector2(-52, 19)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -272,6 +272,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../enemyAttention/CollisionShape2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(31, 0), Vector2(34, -13), Vector2(0, 0), Vector2(-38, -10), Vector2(-38, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_0jjpu"]
@@ -408,6 +420,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../enemyAttention/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_jvr5s"]
 resource_name = "new_animation"
@@ -457,6 +481,7 @@ avoidance_enabled = true
 debug_enabled = true
 
 [node name="attackCol" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(13, 0)
 scale = Vector2(3.47709, 1.04783)
 shape = SubResource("CapsuleShape2D_kjyoc")
@@ -468,12 +493,13 @@ shape = SubResource("CapsuleShape2D_204by")
 disabled = true
 
 [node name="deathCol" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(23, 13)
 rotation = -0.324945
 shape = SubResource("RectangleShape2D_7vom4")
 
 [node name="enemyAttention" parent="." instance=ExtResource("3_cx0mm")]
-position = Vector2(9, 7)
+position = Vector2(-16, 7)
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyAttention"]
