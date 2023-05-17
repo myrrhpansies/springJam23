@@ -88,7 +88,7 @@ func honkAbout():
 		elif Input.is_action_just_pressed("baseAttack"):
 			canHonk = false
 			honkmation.show()
-			honkmation.play("pinkHorn")
+			honkmation.play("whiteHonk")
 			await honkmation.animation_finished
 			honkmation.hide()
 			honkmation.pause()

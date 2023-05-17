@@ -26,7 +26,7 @@ func unWeakened():
 
 
 func timeToDIe():
-	if killable and Input.is_action_just_pressed("blueAttack"):
+	if killable and Input.is_action_just_pressed("baseAttack"):
 		chase = false
 		$sprites/Animation.play("Death")
 		await $sprites/Animation.animation_finished

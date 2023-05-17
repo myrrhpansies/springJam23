@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://ds8xne5wflc3p"]
+[gd_scene load_steps=65 format=3 uid="uid://ds8xne5wflc3p"]
 
 [ext_resource type="Script" path="res://scenez/sprout.gd" id="1_d4hrc"]
 [ext_resource type="Texture2D" uid="uid://rhj4vnd8vacp" path="res://springArt/glow001.png" id="2_nep6m"]
@@ -35,6 +35,16 @@
 [ext_resource type="Texture2D" uid="uid://dk8sdpbsxgo5r" path="res://springArt/honk/pinkHonk08.png" id="24_otllm"]
 [ext_resource type="Texture2D" uid="uid://cn582ivx7qk53" path="res://springArt/honk/pinkHonk09.png" id="25_lxvb4"]
 [ext_resource type="Texture2D" uid="uid://3w2dbu5wmeau" path="res://springArt/honk/pinkHonk10.png" id="26_gajd4"]
+[ext_resource type="Texture2D" uid="uid://83jmulj2x0m0" path="res://springArt/honk/whiteAttack01.png" id="27_vcoj6"]
+[ext_resource type="Texture2D" uid="uid://bmbmjdujrwqqs" path="res://springArt/honk/whiteAttack02.png" id="28_q0n1b"]
+[ext_resource type="Texture2D" uid="uid://cgemc3o5g66em" path="res://springArt/honk/whiteAttack03.png" id="29_arptb"]
+[ext_resource type="Texture2D" uid="uid://dkwqkf4ac14yc" path="res://springArt/honk/whiteAttack04.png" id="30_d5528"]
+[ext_resource type="Texture2D" uid="uid://cihxdcute0oky" path="res://springArt/honk/whiteAttack05.png" id="31_4kqcg"]
+[ext_resource type="Texture2D" uid="uid://cpk5lqhru40mg" path="res://springArt/honk/whiteAttack06.png" id="32_148j1"]
+[ext_resource type="Texture2D" uid="uid://dkforxymylhni" path="res://springArt/honk/whiteAttack07.png" id="33_0oc41"]
+[ext_resource type="Texture2D" uid="uid://5ly2yt17x0h8" path="res://springArt/honk/whiteAttack08.png" id="34_l1ilu"]
+[ext_resource type="Texture2D" uid="uid://cxf3i2ssya1ly" path="res://springArt/honk/whiteAttack09.png" id="35_krih3"]
+[ext_resource type="Texture2D" uid="uid://cdpvx0jf2xm82" path="res://springArt/honk/whiteAttack10.png" id="36_piptb"]
 [ext_resource type="Script" path="res://scenez/honkDetector.gd" id="36_sprw0"]
 [ext_resource type="Script" path="res://scenez/enemyInt.gd" id="37_e2yhc"]
 
@@ -612,6 +622,56 @@ animations = [{
 "texture": null
 }, {
 "duration": 1.0,
+"texture": ExtResource("27_vcoj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_q0n1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_arptb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_d5528")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_4kqcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_148j1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_0oc41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_l1ilu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_krih3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_piptb")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"whiteHonk",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
 "texture": null
 }, {
 "duration": 1.0,
@@ -748,7 +808,7 @@ script = ExtResource("36_sprw0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="honkDetector"]
 position = Vector2(-85, -1)
 sprite_frames = SubResource("SpriteFrames_pu0gr")
-animation = &"blueHorn"
+animation = &"whiteHonk"
 
 [node name="hornCol2" type="CollisionShape2D" parent="honkDetector"]
 position = Vector2(-84, 2)
