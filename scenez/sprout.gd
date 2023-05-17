@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var animations = $Sprite2D/AnimationPlayer
 @onready var honkmation = $honkDetector/AnimatedSprite2D
 var canMove = true
-
+var canHonk = true
 func _ready():
 	Global.player = self
 
@@ -69,27 +69,31 @@ func updateAnimation():
 			pass
 	
 func honkAbout():
-	if Input.is_action_just_pressed("blueAttack") and !canMove:
-		honkmation.show()
-		honkmation.play("blueHorn")
-		await honkmation.animation_finished
-		honkmation.hide()
-		honkmation.pause()
-		print("done")
-	elif Input.is_action_just_pressed("yellAttack") and !canMove:
-		honkmation.show()
-		honkmation.play("yellHorn")
-		await honkmation.animation_finished
-		honkmation.hide()
-		honkmation.pause()
-		print("done")
-	elif Input.is_action_just_pressed("pinkAttack") and !canMove:
-		honkmation.show()
-		honkmation.play("pinkHorn")
-		await honkmation.animation_finished
-		honkmation.hide()
-		honkmation.pause()
-		print("done")
+	if canHonk:
+		if Input.is_action_just_pressed("blueAttack"):
+			canHonk = false
+			honkmation.show()
+			honkmation.play("blueHorn")
+			await honkmation.animation_finished
+			honkmation.hide()
+			honkmation.pause()
+			canHonk = true
+		elif Input.is_action_just_pressed("yellAttack"):
+			canHonk = false
+			honkmation.show()
+			honkmation.play("yellHorn")
+			await honkmation.animation_finished
+			honkmation.hide()
+			honkmation.pause()
+			canHonk = true
+		elif Input.is_action_just_pressed("pinkAttack"):
+			canHonk = false
+			honkmation.show()
+			honkmation.play("pinkHorn")
+			await honkmation.animation_finished
+			honkmation.hide()
+			honkmation.pause()
+			canHonk = true
 
 func _physics_process(_delta):
 	handleInput()
