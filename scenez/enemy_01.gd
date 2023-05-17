@@ -45,8 +45,7 @@ func actor_setup():
 func set_movement_target(target_point: Vector2):
 	navigation_agent.target_position = target_point
 
-func _on_path_timer_timeout():
-	pass
+
 
 
 func _physics_process(_delta):
