@@ -16,7 +16,7 @@ func _ready():
 	
 func madeAware():
 	chase = true
-	print("hey there")
+	actor_setup()
 	
 
 func notAware():
@@ -54,9 +54,6 @@ func actor_setup():
 
 func set_movement_target(target_point: Vector2):
 	navigation_agent.target_position = target_point
-
-
-
 
 func _physics_process(_delta):
 	notAware()

@@ -713,7 +713,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_th705"]
-size = Vector2(115, 42)
+size = Vector2(115, 52)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vewhx"]
 radius = 82.0492
@@ -811,10 +811,11 @@ sprite_frames = SubResource("SpriteFrames_pu0gr")
 animation = &"whiteHonk"
 
 [node name="hornCol2" type="CollisionShape2D" parent="honkDetector"]
-position = Vector2(-84, 2)
+position = Vector2(-84, -3)
 shape = SubResource("RectangleShape2D_th705")
 
 [node name="enemyInt" type="Area2D" parent="."]
+visible = false
 collision_mask = 16
 script = ExtResource("37_e2yhc")
 

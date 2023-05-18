@@ -16,7 +16,7 @@ func _ready():
 	
 func madeAware():
 	chase = true
-	print("hey there")
+	actor_setup()
 	
 
 func notAware():

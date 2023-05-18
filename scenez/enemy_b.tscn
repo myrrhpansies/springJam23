@@ -407,6 +407,7 @@ script = ExtResource("1_hy6jn")
 navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [node name="sprites" type="Sprite2D" parent="."]
 texture = ExtResource("1_tmx8l")
