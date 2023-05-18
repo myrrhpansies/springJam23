@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var chase = false
 var killable = false
+var alive = true
 @export var movement_speed : float = 150.0
 @export var movement_target : Node
 @export var navigation_agent: NavigationAgent2D
@@ -19,7 +20,7 @@ func madeAware():
 	
 
 func notAware():
-	if !chase and !killable:
+	if !chase and !killable and alive:
 		if	movement_target.position.x > self.position.x:
 			$sprites.flip_h = true
 		if	movement_target.position.x < self.position.x:
@@ -35,6 +36,7 @@ func unWeakened():
 
 func timeToDIe():
 	if killable and Input.is_action_just_pressed("baseAttack"):
+		alive = false
 		chase = false
 		$sprites/Animation.play("Death")
 		await $sprites/Animation.animation_finished

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bsq7iele1syua"]
+[gd_scene load_steps=24 format=3 uid="uid://bsq7iele1syua"]
 
 [ext_resource type="Texture2D" uid="uid://cip7fji1drnsd" path="res://springArt/vineyTilez.png" id="1_igaap"]
 [ext_resource type="Texture2D" uid="uid://d35jns3urlur6" path="res://springArt/sky.png" id="1_jk587"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c2g06l4i0g4yo" path="res://scenez/enemy_01.tscn" id="8_54vh7"]
 [ext_resource type="Texture2D" uid="uid://h2luy42uuuj4" path="res://springArt/fore001.png" id="9_3rjiy"]
 [ext_resource type="Texture2D" uid="uid://da5bk3btsntha" path="res://springArt/fore002.png" id="9_q1e1l"]
+[ext_resource type="PackedScene" uid="uid://bavsh181xenv7" path="res://scenez/enemy_c.tscn" id="10_bijku"]
 [ext_resource type="PackedScene" uid="uid://cifwc6dywvj1o" path="res://scenez/blue_flower.tscn" id="15_esca4"]
 [ext_resource type="PackedScene" uid="uid://2de2hii0wy0c" path="res://scenez/pink_flower.tscn" id="16_goalq"]
 [ext_resource type="PackedScene" uid="uid://camlkyqvwr0xg" path="res://scenez/yell_flower.tscn" id="17_rqrry"]
@@ -241,6 +242,26 @@ movement_target = NodePath("../sprout")
 [node name="Enemy02" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("8_54vh7")]
 position = Vector2(2994, 350)
 scale = Vector2(0.8, 0.8)
+movement_target = NodePath("../sprout")
+
+[node name="enemyB2" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("19_v3uro")]
+position = Vector2(918, 2134)
+movement_target = NodePath("../sprout")
+
+[node name="enemyB" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("19_v3uro")]
+position = Vector2(1873, 282)
+movement_target = NodePath("../sprout")
+
+[node name="enemyC" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("10_bijku")]
+position = Vector2(2799, 1591)
+movement_target = NodePath("../sprout")
+
+[node name="enemyC2" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("10_bijku")]
+position = Vector2(3565, 710)
+movement_target = NodePath("../sprout")
+
+[node name="enemyC3" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("10_bijku")]
+position = Vector2(1460, 1621)
 movement_target = NodePath("../sprout")
 
 [node name="leaves" type="Node2D" parent="."]
@@ -604,11 +625,3 @@ position = Vector2(3163, 2334)
 
 [node name="pinkFlower4" parent="flowerss" instance=ExtResource("16_goalq")]
 position = Vector2(555, 2334)
-
-[node name="enemyB" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("19_v3uro")]
-position = Vector2(1873, 282)
-movement_target = NodePath("../sprout")
-
-[node name="enemyB2" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("19_v3uro")]
-position = Vector2(918, 2134)
-movement_target = NodePath("../sprout")
