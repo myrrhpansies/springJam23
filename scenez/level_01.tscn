@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bsq7iele1syua"]
+[gd_scene load_steps=23 format=3 uid="uid://bsq7iele1syua"]
 
 [ext_resource type="Texture2D" uid="uid://cip7fji1drnsd" path="res://springArt/vineyTilez.png" id="1_igaap"]
 [ext_resource type="Texture2D" uid="uid://d35jns3urlur6" path="res://springArt/sky.png" id="1_jk587"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cifwc6dywvj1o" path="res://scenez/blue_flower.tscn" id="15_esca4"]
 [ext_resource type="PackedScene" uid="uid://2de2hii0wy0c" path="res://scenez/pink_flower.tscn" id="16_goalq"]
 [ext_resource type="PackedScene" uid="uid://camlkyqvwr0xg" path="res://scenez/yell_flower.tscn" id="17_rqrry"]
+[ext_resource type="PackedScene" uid="uid://dg7adk1eayg4y" path="res://scenez/enemy_b.tscn" id="19_v3uro"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_k6f82"]
 vertices = PackedVector2Array(3761, 560, 3776, 458, 3998, 204, 4002, 802, 3782, 800, 3392, 200, 3696, 421, 3628, 444, 3393, 932, 3620, 512, 2579, 774, 2590, 653, 2809, 533, 2815, 1159, 2746, 1222, 3676, 569, 3665, 876, 861, 416, 801, 404, 792, 201, 3198, 198, 1886, 410, 2149, 437, 2893, 452, 2200, 1813, 2188, 1396, 2854, 1396, 3207, 1813, 3387, 1393, 3674, 952, 3639, 1411, 3716, 997, 4001, 1480, 3747, 1462, 2006, 1600, 2009, 1804, 606, 1819, 1913, 1570, 1871, 1504, 582, 1444, 627, 1378, 732, 1327, 1146, 1384, 3648, 2010, 3405, 2019, 3390, 1603, 3534, 1570, 3687, 1549, 4010, 1972, 3996, 1001, 768, 590, 1779, 611, 1787, 809, 1044, 815, 259, 818, 202, 1010, 987, 1007, 1002, 1234, 166, 728, 205, 204, 597, 207, 615, 458, 1196, 950, 1823, 923, 2973, 1276, 2997, 1132, 3000, 560, 2431, 639, 2151, 530, 3750, 2055, 3872, 2079, 1700, 1213, 1262, 1222, 1184, 1189, 1952, 956, 1763, 1261, 2053, 899, 2128, 1207, 1997, 1417, 2437, 768, 3872, 2148, 3657, 2193, 3995, 2211, 4016, 2298, 3992, 2394, 2869, 2415, 3420, 2190, 3315, 2151, 3198, 2002, 2806, 2385, 2725, 2259, 2200, 2004, 2665, 2268, 2617, 2307, 2155, 2160, 2596, 2391, 1649, 2415, 2101, 2130, 1991, 2002, 1511, 2265, 636, 1993, 1448, 2286, 1385, 2394, 253, 2406, 480, 1924, 187, 2364, 420, 1834, 423, 1327, 531, 1231, 2019, 620, 1895, 1459, 1670, 1396, 1050, 1312, 678, 1213, 759, 1261)
@@ -603,3 +604,11 @@ position = Vector2(3163, 2334)
 
 [node name="pinkFlower4" parent="flowerss" instance=ExtResource("16_goalq")]
 position = Vector2(555, 2334)
+
+[node name="enemyB" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("19_v3uro")]
+position = Vector2(1873, 282)
+movement_target = NodePath("../sprout")
+
+[node name="enemyB2" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("19_v3uro")]
+position = Vector2(918, 2134)
+movement_target = NodePath("../sprout")

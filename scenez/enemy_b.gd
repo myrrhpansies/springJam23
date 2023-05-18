@@ -16,14 +16,6 @@ func _ready():
 func madeAware():
 	chase = true
 	print("hey there")
-	
-
-func notAware():
-	if !chase and !killable:
-		if	movement_target.position.x > self.position.x:
-			$sprites.flip_h = true
-		if	movement_target.position.x < self.position.x:
-			$sprites.flip_h = false		
 
 func weakened():
 	killable = true
@@ -53,7 +45,12 @@ func actor_setup():
 func set_movement_target(target_point: Vector2):
 	navigation_agent.target_position = target_point
 
-
+func notAware():
+	if !chase and !killable:
+		if	movement_target.position.x > self.position.x:
+			$sprites.flip_h = true
+		if	movement_target.position.x < self.position.x:
+			$sprites.flip_h = false		
 
 
 func _physics_process(_delta):
