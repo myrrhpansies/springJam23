@@ -9,6 +9,7 @@ var canMove = true
 var canHonk = true
 var canDash = true
 
+
 func _ready():
 	Global.player = self
 
@@ -52,9 +53,11 @@ func updateAnimation():
 			animations.play("base")
 			canMove = true
 		elif Input.is_action_just_pressed("dash") and canDash:
+			
 			canMove = false
 			canDash = false
 			$dashTimer.start()
+			$ghostTimer.start()
 			Speed *= 3
 		else: 
 			pass
@@ -118,7 +121,14 @@ func _on_dash_timer_timeout():
 	Speed /= 3
 	$dashSpacer.start()
 	
+	
 
 
 func _on_dash_spacer_timeout():
 	canDash = true
+
+
+func _on_ghost_timer_timeout():
+	pass
+
+

@@ -625,3 +625,11 @@ position = Vector2(3163, 2334)
 
 [node name="pinkFlower4" parent="flowerss" instance=ExtResource("16_goalq")]
 position = Vector2(555, 2334)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

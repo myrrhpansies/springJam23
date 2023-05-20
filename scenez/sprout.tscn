@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://ds8xne5wflc3p"]
+[gd_scene load_steps=63 format=3 uid="uid://ds8xne5wflc3p"]
 
 [ext_resource type="Script" path="res://scenez/sprout.gd" id="1_d4hrc"]
 [ext_resource type="Texture2D" uid="uid://rhj4vnd8vacp" path="res://springArt/glow001.png" id="2_nep6m"]
@@ -114,6 +114,15 @@ tracks/4/keys = {
 _data = {
 "glow": SubResource("Animation_7qkls")
 }
+
+[sub_resource type="Gradient" id="Gradient_haygj"]
+offsets = PackedFloat32Array(0.027027, 0.324324, 0.594595, 0.945946)
+colors = PackedColorArray(1, 1, 1, 1, 0.798298, 0.635169, 0.366782, 1, 0.445217, 0.764172, 1, 1, 1.05888e-06, 0.295434, 0.459066, 0.2)
+
+[sub_resource type="Curve" id="Curve_nowi8"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_wjtjl"]
 resource_name = "attack"
@@ -602,10 +611,10 @@ position = Vector2(24, 28)
 rotation = -0.577521
 scale = Vector2(0.5, 0.5)
 skew = -0.0628319
-amount = 12
+amount = 10
 lifetime = 0.6
 speed_scale = 0.5
-randomness = 0.18
+randomness = 0.33
 lifetime_randomness = 0.09
 texture = ExtResource("2_vk102")
 emission_shape = 2
@@ -616,7 +625,15 @@ initial_velocity_min = 30.31
 initial_velocity_max = 50.51
 radial_accel_min = 20.2
 radial_accel_max = 32.32
-hue_variation_max = 0.44
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.8, 1, 0.831373, 1)
+color_ramp = SubResource("Gradient_haygj")
+hue_variation_min = -1.0
+hue_variation_max = -0.16
+hue_variation_curve = SubResource("Curve_nowi8")
+anim_speed_min = 25.92
+anim_speed_max = 25.92
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, -1)
@@ -687,7 +704,11 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="ghostTimer" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="body_entered" from="ouchBox" to="." method="_on_ouch_box_body_entered"]
 [connection signal="timeout" from="ouchBox/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dashSpacer" to="." method="_on_dash_spacer_timeout"]
+[connection signal="timeout" from="ghostTimer" to="." method="_on_ghost_timer_timeout"]
