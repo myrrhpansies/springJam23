@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var honkmation = $honkDetector/AnimatedSprite2D
 var canMove = true
 var canHonk = true
+var canDash = true
 
 func _ready():
 	Global.player = self
@@ -50,12 +51,11 @@ func updateAnimation():
 			await animations.animation_finished
 			animations.play("base")
 			canMove = true
-		elif Input.is_action_just_pressed("dash"):
-			animations.play("dashTrans")	
-			await animations.animation_finished
-			animations.play("dash")
-			await animations.animation_finished
-			animations.play("base")
+		elif Input.is_action_just_pressed("dash") and canDash:
+			canMove = false
+			canDash = false
+			$dashTimer.start()
+			Speed *= 3
 		else: 
 			pass
 	
@@ -111,5 +111,14 @@ func _on_ouch_box_body_entered(_body):
 
 func _on_timer_timeout():
 	$ouchBox/CollisionShape2D.set_deferred("disabled", false)
-	print('time out')
 
+
+func _on_dash_timer_timeout():
+	canMove = true
+	Speed /= 3
+	$dashSpacer.start()
+	
+
+
+func _on_dash_spacer_timeout():
+	canDash = true

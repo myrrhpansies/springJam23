@@ -92,6 +92,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(-2, 18), Vector2(-4, 1.90735e-06), Vector2(-2, 18)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../enemyAttention/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_srmvc"]
 resource_name = "Death"
@@ -163,6 +175,18 @@ tracks/5/path = NodePath("../attackCol:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../enemyAttention/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -268,6 +292,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(22, 18), Vector2(-9, 6), Vector2(-30, 20), Vector2(-70, 9), Vector2(-94, 27), Vector2(-136, 4), Vector2(-142, 20)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../enemyAttention/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_oquur"]
@@ -380,6 +416,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(22, 18)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../enemyAttention/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_24a32"]
 _data = {
@@ -431,9 +479,9 @@ shape = SubResource("CapsuleShape2D_um0ci")
 disabled = true
 
 [node name="enemyAttention" parent="." instance=ExtResource("1_18q15")]
-visible = false
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyAttention"]
 position = Vector2(4, 7)
 shape = SubResource("CircleShape2D_or4oa")
+disabled = true
