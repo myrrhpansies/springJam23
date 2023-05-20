@@ -112,3 +112,4 @@ func _on_ouch_box_body_entered(_body):
 func _on_timer_timeout():
 	$ouchBox/CollisionShape2D.set_deferred("disabled", false)
 	print('time out')
+
