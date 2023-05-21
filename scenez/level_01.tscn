@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bsq7iele1syua"]
+[gd_scene load_steps=31 format=3 uid="uid://bsq7iele1syua"]
 
 [ext_resource type="Texture2D" uid="uid://cip7fji1drnsd" path="res://springArt/vineyTilez.png" id="1_igaap"]
 [ext_resource type="Texture2D" uid="uid://d35jns3urlur6" path="res://springArt/sky.png" id="1_jk587"]
@@ -20,6 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://2de2hii0wy0c" path="res://scenez/pink_flower.tscn" id="16_goalq"]
 [ext_resource type="PackedScene" uid="uid://camlkyqvwr0xg" path="res://scenez/yell_flower.tscn" id="17_rqrry"]
 [ext_resource type="PackedScene" uid="uid://dg7adk1eayg4y" path="res://scenez/enemy_b.tscn" id="19_v3uro"]
+[ext_resource type="Texture2D" uid="uid://b15kqp74djyly" path="res://springArt/health01.png" id="21_x2ses"]
+[ext_resource type="Texture2D" uid="uid://blwfwpbr3pa7m" path="res://springArt/health02.png" id="22_aunip"]
+[ext_resource type="Texture2D" uid="uid://b4sjg1ito7i14" path="res://springArt/health03.png" id="23_bgda6"]
+[ext_resource type="Texture2D" uid="uid://chc1e822xtnub" path="res://springArt/health04.png" id="24_qrwew"]
+[ext_resource type="Texture2D" uid="uid://0aoa7hd5gb47" path="res://springArt/health05.png" id="25_aa6kt"]
+[ext_resource type="Script" path="res://scenez/healthSprites.gd" id="26_7lfrq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_k6f82"]
 vertices = PackedVector2Array(3761, 560, 3776, 458, 3998, 204, 4002, 802, 3782, 800, 3392, 200, 3696, 421, 3628, 444, 3393, 932, 3620, 512, 2579, 774, 2590, 653, 2809, 533, 2815, 1159, 2746, 1222, 3676, 569, 3665, 876, 861, 416, 801, 404, 792, 201, 3198, 198, 1886, 410, 2149, 437, 2893, 452, 2200, 1813, 2188, 1396, 2854, 1396, 3207, 1813, 3387, 1393, 3674, 952, 3639, 1411, 3716, 997, 4001, 1480, 3747, 1462, 2006, 1600, 2009, 1804, 606, 1819, 1913, 1570, 1871, 1504, 582, 1444, 627, 1378, 732, 1327, 1146, 1384, 3648, 2010, 3405, 2019, 3390, 1603, 3534, 1570, 3687, 1549, 4010, 1972, 3996, 1001, 768, 590, 1779, 611, 1787, 809, 1044, 815, 259, 818, 202, 1010, 987, 1007, 1002, 1234, 166, 728, 205, 204, 597, 207, 615, 458, 1196, 950, 1823, 923, 2973, 1276, 2997, 1132, 3000, 560, 2431, 639, 2151, 530, 3750, 2055, 3872, 2079, 1700, 1213, 1262, 1222, 1184, 1189, 1952, 956, 1763, 1261, 2053, 899, 2128, 1207, 1997, 1417, 2437, 768, 3872, 2148, 3657, 2193, 3995, 2211, 4016, 2298, 3992, 2394, 2869, 2415, 3420, 2190, 3315, 2151, 3198, 2002, 2806, 2385, 2725, 2259, 2200, 2004, 2665, 2268, 2617, 2307, 2155, 2160, 2596, 2391, 1649, 2415, 2101, 2130, 1991, 2002, 1511, 2265, 636, 1993, 1448, 2286, 1385, 2394, 253, 2406, 480, 1924, 187, 2364, 420, 1834, 423, 1327, 531, 1231, 2019, 620, 1895, 1459, 1670, 1396, 1050, 1312, 678, 1213, 759, 1261)
@@ -160,6 +166,29 @@ texture_region_size = Vector2i(200, 200)
 tile_size = Vector2i(200, 200)
 physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_l8bt0")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1hqg1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_x2ses")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_aunip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_bgda6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_qrwew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_aa6kt")
+}],
+"loop": true,
+"name": &"health",
+"speed": 5.0
+}]
 
 [node name="Level01" type="Node2D"]
 
@@ -629,7 +658,15 @@ position = Vector2(555, 2334)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
+z_index = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="healthSprites" type="AnimatedSprite2D" parent="CanvasLayer/Control"]
+position = Vector2(82, 86)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_1hqg1")
+animation = &"health"
+script = ExtResource("26_7lfrq")

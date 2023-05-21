@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+signal healthChanged
 
 @export var Speed: int = 300
 @onready var life: int = 5
@@ -110,6 +110,7 @@ func _on_ouch_box_body_entered(_body):
 	updateHealth()
 	$ouchBox/Timer.start()
 	print(life)
+	emit_signal("healthChanged")
 	
 
 func _on_timer_timeout():
